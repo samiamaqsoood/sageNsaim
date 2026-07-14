@@ -25,7 +25,7 @@ export default function Intro() {
             </p>
           </Reveal>
         </div>
-        <div ref={ref} className="md:col-span-9">
+        <div ref={ref} className="relative md:col-span-9">
           <p className="flex flex-wrap font-display text-3xl font-light leading-snug tracking-tight md:text-5xl md:leading-[1.15]">
             {words.map((word, i) => {
               const start = i / words.length;
