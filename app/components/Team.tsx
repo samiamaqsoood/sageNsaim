@@ -35,7 +35,7 @@ const team: Member[] = [
     bio: "Full-stack MERN and Next.js developer building fast, scalable websites, REST APIs and AI agents. Has contributed to projects for global tech leaders including NVIDIA and Alibaba — from LLM evaluation and RLHF/SFT datasets to RAG and agentic workflows — bringing enterprise-grade engineering standards from multinational teams to every product we ship.",
     skills: ["Next.js / MERN", "AI Agents", "REST APIs", "Automation"],
     gradient: "linear-gradient(135deg, #a8bf9e, #6f8a66)",
-    photo: "/team-samia.png",
+    photo: "/team-samia.jpg",
   },
 ];
 

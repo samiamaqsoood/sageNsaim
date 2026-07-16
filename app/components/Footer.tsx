@@ -53,7 +53,18 @@ export default function Footer() {
               A creative &amp; growth agency. Social, web, automation, branding,
               photography and AI — built to grow your brand.
             </p>
-            <p className="mt-6 text-sm text-cream/40">Available worldwide</p>
+            <div className="mt-6 space-y-1.5 text-sm text-cream/60">
+              <p>
+                <a
+                  href="tel:+923177404013"
+                  className="transition-colors hover:text-sage"
+                >
+                  +92 317 740 4013
+                </a>
+              </p>
+              <p>Sargodha, Pakistan</p>
+              <p className="text-cream/40">Available worldwide</p>
+            </div>
           </div>
 
           {columns.map((col) => (

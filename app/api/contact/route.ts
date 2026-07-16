@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { Resend } from "resend";
+import nodemailer from "nodemailer";
 
 export const runtime = "nodejs";
 
@@ -58,13 +58,13 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: errors.join(" ") }, { status: 400 });
   }
 
-  const apiKey = process.env.RESEND_API_KEY;
-  const toEmail = process.env.CONTACT_TO_EMAIL || "sagesaimagency@gmail.com";
-  const fromEmail =
-    process.env.CONTACT_FROM_EMAIL || "Sage&Saim Website <onboarding@resend.dev>";
+  const gmailUser = process.env.GMAIL_USER;
+  // Google shows app passwords with spaces (e.g. "abcd efgh ijkl mnop"); strip them.
+  const gmailPass = process.env.GMAIL_APP_PASSWORD?.replace(/\s+/g, "");
+  const toEmail = process.env.CONTACT_TO_EMAIL || gmailUser || "sagesaimagency@gmail.com";
 
-  if (!apiKey) {
-    console.error("RESEND_API_KEY is not configured.");
+  if (!gmailUser || !gmailPass) {
+    console.error("GMAIL_USER / GMAIL_APP_PASSWORD are not configured.");
     return NextResponse.json(
       {
         error:
@@ -74,7 +74,6 @@ export async function POST(request: Request) {
     );
   }
 
-  const resend = new Resend(apiKey);
   const fullName = `${firstName} ${lastName}`;
 
   const html = `
@@ -104,29 +103,27 @@ Message:
 ${message}`;
 
   try {
-    const { error } = await resend.emails.send({
-      from: fromEmail,
-      to: [toEmail],
-      replyTo: email,
+    const transporter = nodemailer.createTransport({
+      service: "gmail",
+      auth: { user: gmailUser, pass: gmailPass },
+    });
+
+    await transporter.sendMail({
+      // Gmail requires the authenticated account as the sender.
+      from: `"Sage&Saim Website" <${gmailUser}>`,
+      to: toEmail,
+      replyTo: `"${fullName}" <${email}>`,
       subject: `New enquiry — ${fullName} (${projectType})`,
       html,
       text,
     });
 
-    if (error) {
-      console.error("Resend error:", error);
-      return NextResponse.json(
-        { error: "We couldn't send your message right now. Please try again shortly." },
-        { status: 502 }
-      );
-    }
-
     return NextResponse.json({ ok: true });
   } catch (err) {
-    console.error("Contact route error:", err);
+    console.error("Contact route (nodemailer) error:", err);
     return NextResponse.json(
-      { error: "Something went wrong. Please try again shortly." },
-      { status: 500 }
+      { error: "We couldn't send your message right now. Please try again shortly." },
+      { status: 502 }
     );
   }
 }

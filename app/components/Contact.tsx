@@ -96,14 +96,31 @@ export default function Contact() {
             ]}
           />
           <Reveal delay={0.2}>
-            <div className="mt-10 space-y-2 text-cream/60">
-              <p>Prefer email? Reach us directly:</p>
-              <a
-                href="mailto:sagesaimagency@gmail.com"
-                className="text-lg text-cream underline-offset-4 transition-colors hover:text-sage hover:underline"
-              >
-                sagesaimagency@gmail.com
-              </a>
+            <div className="mt-10 space-y-6 text-cream/60">
+              <div className="space-y-1">
+                <p className="text-xs uppercase tracking-[0.25em] text-cream/40">Email</p>
+                <a
+                  href="mailto:sagesaimagency@gmail.com"
+                  className="text-lg text-cream underline-offset-4 transition-colors hover:text-sage hover:underline"
+                >
+                  sagesaimagency@gmail.com
+                </a>
+              </div>
+              <div className="flex gap-12">
+                <div className="space-y-1">
+                  <p className="text-xs uppercase tracking-[0.25em] text-cream/40">Phone</p>
+                  <a
+                    href="tel:+923177404013"
+                    className="text-lg text-cream transition-colors hover:text-sage"
+                  >
+                    +92 317 740 4013
+                  </a>
+                </div>
+                <div className="space-y-1">
+                  <p className="text-xs uppercase tracking-[0.25em] text-cream/40">Location</p>
+                  <p className="text-lg text-cream">Sargodha, Pakistan</p>
+                </div>
+              </div>
             </div>
           </Reveal>
         </div>

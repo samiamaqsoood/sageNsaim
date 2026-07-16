@@ -14,7 +14,6 @@ export default function CTA() {
 
   return (
     <section
-      id="contact"
       ref={ref}
       className="relative overflow-hidden border-t border-cream/10 py-32 md:py-48"
     >
@@ -46,7 +45,7 @@ export default function CTA() {
           className="mt-14 flex flex-col items-center gap-6"
         >
           <a
-            href="mailto:sagesaimagency@gmail.com"
+            href="#contact"
             className="group inline-flex items-center gap-4 rounded-full bg-cream px-8 py-4 text-ink transition-transform duration-300 hover:scale-105"
           >
             <span className="text-sm uppercase tracking-[0.2em]">Work with us</span>

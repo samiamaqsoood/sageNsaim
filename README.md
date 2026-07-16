@@ -22,6 +22,22 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000).
 
+### Contact form email (Gmail SMTP)
+
+The contact form posts to a server-side route (`app/api/contact/route.ts`) that
+sends an email via Gmail SMTP using [Nodemailer](https://nodemailer.com/). To enable it:
+
+1. Turn on **2-Step Verification** for the Gmail account
+   ([myaccount.google.com/security](https://myaccount.google.com/security)).
+2. Create an **App Password** ("Mail")
+   ([myaccount.google.com/apppasswords](https://myaccount.google.com/apppasswords)).
+3. Copy `.env.local.example` to `.env.local`, set `GMAIL_USER` and paste the
+   16-character `GMAIL_APP_PASSWORD` (no spaces), then restart `npm run dev`.
+
+`CONTACT_TO_EMAIL` controls where enquiries land (defaults to `GMAIL_USER`).
+Credentials are only read on the server and never exposed to the browser.
+Without them the form fails gracefully and asks visitors to email directly.
+
 ### Other scripts
 
 ```bash

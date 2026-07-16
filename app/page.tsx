@@ -7,6 +7,7 @@ import Work from "./components/Work";
 import Team from "./components/Team";
 import Clients from "./components/Clients";
 import CTA from "./components/CTA";
+import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 
 export default function Home() {
@@ -21,6 +22,7 @@ export default function Home() {
       <Team />
       <Clients />
       <CTA />
+      <Contact />
       <Footer />
     </main>
   );

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import Reveal from "./Reveal";
@@ -8,7 +9,7 @@ type Project = {
   title: string;
   category: string;
   year: string;
-  gradient: string;
+  image: string;
   tall?: boolean;
 };
 
@@ -17,39 +18,39 @@ const projects: Project[] = [
     title: "FMCG Campaign Creatives",
     category: "Branding · Social",
     year: "2025",
-    gradient: "linear-gradient(135deg, #8ea884 0%, #6f8a66 100%)",
+    image: "/work-fmcg.jpg",
     tall: true,
   },
   {
     title: "SaaS Marketing Website",
     category: "Web · Next.js",
     year: "2025",
-    gradient: "linear-gradient(135deg, #a68b63 0%, #836b48 100%)",
+    image: "/work-saas.jpg",
   },
   {
     title: "AI Support Agent",
     category: "Automation · RAG",
     year: "2026",
-    gradient: "linear-gradient(135deg, #252521 0%, #6f8a66 100%)",
+    image: "/work-ai.jpg",
   },
   {
     title: "Product Photoshoot",
     category: "Photography · Art Direction",
     year: "2025",
-    gradient: "linear-gradient(135deg, #c2a982 0%, #a68b63 100%)",
+    image: "/work-product.jpg",
     tall: true,
   },
   {
     title: "Corporate Brand System",
     category: "Identity · Guidelines",
     year: "2024",
-    gradient: "linear-gradient(135deg, #a8bf9e 0%, #8ea884 100%)",
+    image: "/work-brand.jpg",
   },
   {
     title: "Computer Vision Dataset",
     category: "AI · Data Annotation",
     year: "2026",
-    gradient: "linear-gradient(135deg, #3a3a34 0%, #a68b63 100%)",
+    image: "/work-cv.jpg",
   },
 ];
 
@@ -104,14 +105,19 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
           project.tall ? "aspect-[3/4] lg:h-full" : "aspect-[4/3]"
         }`}
       >
-        <motion.div
-          style={{ background: project.gradient, y }}
-          className="absolute inset-0 scale-110 transition-transform duration-700 group-hover:scale-125"
-        />
-        <div className="absolute inset-0 bg-ink/10 transition-colors duration-500 group-hover:bg-ink/30" />
+        <motion.div style={{ y }} className="absolute inset-0 scale-110 transition-transform duration-700 group-hover:scale-125">
+          <Image
+            src={project.image}
+            alt={`${project.title} — ${project.category}`}
+            fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            className="object-cover"
+          />
+        </motion.div>
+        <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/20 to-ink/10 transition-colors duration-500 group-hover:from-ink/90" />
 
         {/* Noise / grain overlay */}
-        <div className="absolute inset-0 opacity-[0.15] mix-blend-overlay [background-image:radial-gradient(#fff_1px,transparent_1px)] [background-size:4px_4px]" />
+        <div className="pointer-events-none absolute inset-0 opacity-[0.12] mix-blend-overlay [background-image:radial-gradient(#fff_1px,transparent_1px)] [background-size:4px_4px]" />
 
         <div className="absolute inset-0 flex flex-col justify-between p-6">
           <div className="flex items-start justify-between">
