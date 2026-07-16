@@ -38,7 +38,7 @@ export default function Contact() {
       company: String(fd.get("company") ?? ""),
       projectType: String(fd.get("projectType") ?? ""),
       message: String(fd.get("message") ?? ""),
-      companyWebsite: String(fd.get("companyWebsite") ?? ""),
+      hpToken: String(fd.get("hp_token") ?? ""),
     };
 
     setStatus("submitting");
@@ -151,15 +151,20 @@ export default function Contact() {
             </motion.div>
           ) : (
             <form onSubmit={handleSubmit} className="flex flex-col gap-4" noValidate>
-              {/* Honeypot: hidden from users, catches bots */}
-              <input
-                type="text"
-                name="companyWebsite"
-                tabIndex={-1}
-                autoComplete="off"
+              {/* Honeypot: hidden from users & autofill, catches bots.
+                  Neutral name so browser autofill won't populate it. */}
+              <div
                 aria-hidden="true"
-                className="absolute left-[-9999px] h-0 w-0 opacity-0"
-              />
+                className="pointer-events-none absolute left-[-9999px] top-0 h-0 w-0 overflow-hidden opacity-0"
+              >
+                <input
+                  type="text"
+                  name="hp_token"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  defaultValue=""
+                />
+              </div>
 
               <div className="grid gap-4 sm:grid-cols-2">
                 <input name="firstName" type="text" required placeholder="First name *" className={inputClass} />

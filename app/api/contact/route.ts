@@ -12,7 +12,7 @@ type ContactPayload = {
   projectType?: string;
   message?: string;
   // Honeypot — must stay empty for real humans
-  companyWebsite?: string;
+  hpToken?: string;
 };
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -35,7 +35,7 @@ export async function POST(request: Request) {
   }
 
   // Bot caught by honeypot — pretend everything is fine, send nothing.
-  if (data.companyWebsite && data.companyWebsite.trim() !== "") {
+  if (data.hpToken && data.hpToken.trim() !== "") {
     return NextResponse.json({ ok: true });
   }
 
