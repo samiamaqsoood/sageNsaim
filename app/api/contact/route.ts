@@ -11,9 +11,13 @@ type ContactPayload = {
   company?: string;
   projectType?: string;
   message?: string;
-  // Honeypot — must stay empty for real humans
-  hpToken?: string;
+  // Milliseconds between the form loading and submission — real users take
+  // seconds; bots submit almost instantly.
+  elapsedMs?: number;
 };
+
+// Submissions faster than this are almost certainly automated.
+const MIN_ELAPSED_MS = 1200;
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -34,8 +38,8 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Invalid request body." }, { status: 400 });
   }
 
-  // Bot caught by honeypot — pretend everything is fine, send nothing.
-  if (data.hpToken && data.hpToken.trim() !== "") {
+  // Likely a bot (submitted implausibly fast) — pretend it worked, send nothing.
+  if (typeof data.elapsedMs === "number" && data.elapsedMs >= 0 && data.elapsedMs < MIN_ELAPSED_MS) {
     return NextResponse.json({ ok: true });
   }
 

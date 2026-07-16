@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useRef, useState } from "react";
 import AnimatedHeading from "./AnimatedHeading";
 import Reveal from "./Reveal";
 
@@ -23,6 +23,12 @@ const inputClass =
 export default function Contact() {
   const [status, setStatus] = useState<Status>("idle");
   const [errorMsg, setErrorMsg] = useState("");
+  // Records when the form became available so the server can spot bots that
+  // submit within milliseconds. Content-independent, so autofill never breaks it.
+  const loadedAt = useRef<number>(0);
+  useEffect(() => {
+    loadedAt.current = Date.now();
+  }, []);
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -38,7 +44,7 @@ export default function Contact() {
       company: String(fd.get("company") ?? ""),
       projectType: String(fd.get("projectType") ?? ""),
       message: String(fd.get("message") ?? ""),
-      hpToken: String(fd.get("hp_token") ?? ""),
+      elapsedMs: loadedAt.current ? Date.now() - loadedAt.current : 99999,
     };
 
     setStatus("submitting");
@@ -151,21 +157,6 @@ export default function Contact() {
             </motion.div>
           ) : (
             <form onSubmit={handleSubmit} className="flex flex-col gap-4" noValidate>
-              {/* Honeypot: hidden from users & autofill, catches bots.
-                  Neutral name so browser autofill won't populate it. */}
-              <div
-                aria-hidden="true"
-                className="pointer-events-none absolute left-[-9999px] top-0 h-0 w-0 overflow-hidden opacity-0"
-              >
-                <input
-                  type="text"
-                  name="hp_token"
-                  tabIndex={-1}
-                  autoComplete="off"
-                  defaultValue=""
-                />
-              </div>
-
               <div className="grid gap-4 sm:grid-cols-2">
                 <input name="firstName" type="text" required placeholder="First name *" className={inputClass} />
                 <input name="lastName" type="text" required placeholder="Last name *" className={inputClass} />
