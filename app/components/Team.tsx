@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Reveal from "./Reveal";
 
 type Member = {
@@ -8,33 +9,33 @@ type Member = {
   bio: string;
   skills: string[];
   gradient: string;
-  initials: string;
+  photo: string;
 };
 
 const team: Member[] = [
   {
     name: "Shafqat Ali",
     role: "Creative & Brand Director",
-    bio: "Graphic designer with 8+ years and 5,000+ projects delivered for global brands like Lipton, Kurkure, Kia and Mountain Dew. Leads branding, social creatives and art direction.",
+    bio: "Graphic designer with 8+ years and 5,000+ projects delivered for multinational brands including Lipton, Kurkure, Cheetos, Kia and Mountain Dew across 20+ countries. Leads branding, social media creatives, art direction and photography, transforming strategy into scroll-stopping visuals while keeping every touchpoint consistent, on-brand and unmistakable worldwide.",
     skills: ["Branding", "Social Media", "Art Direction", "Photography"],
     gradient: "linear-gradient(135deg, #c2a982, #836b48)",
-    initials: "SA",
+    photo: "/team-shafqat.jpg",
+  },
+  {
+    name: "Sajeela Safdar",
+    role: "Automation Engineer & Data Specialist",
+    bio: "Specializing in workflow automation, API integrations, large language models (LLMs), natural language processing (NLP), and end-to-end business solutions. Experienced in building connected systems that automate repetitive tasks, streamline workflows, integrate business applications, and improve operational efficiency.",
+    skills: ["Workflow Automation", "API Integrations", "LLMs & NLP", "Business Solutions"],
+    gradient: "linear-gradient(135deg, #8ea884, #3a3a34)",
+    photo: "/team-sajeela.jpg",
   },
   {
     name: "Samia Maqsood",
     role: "Web & Automation Lead",
-    bio: "Full-stack MERN and Next.js developer building fast websites, APIs and AI agents. Experienced with LLM evaluation, RAG and agentic workflows using modern frameworks.",
+    bio: "Full-stack MERN and Next.js developer building fast, scalable websites, REST APIs and AI agents. Has contributed to projects for global tech leaders including NVIDIA and Alibaba — from LLM evaluation and RLHF/SFT datasets to RAG and agentic workflows — bringing enterprise-grade engineering standards from multinational teams to every product we ship.",
     skills: ["Next.js / MERN", "AI Agents", "REST APIs", "Automation"],
     gradient: "linear-gradient(135deg, #a8bf9e, #6f8a66)",
-    initials: "SM",
-  },
-  {
-    name: "Sajeela Safdar",
-    role: "AI & Data Lead",
-    bio: "Data specialist with deep expertise in computer vision, NLP and annotation. Built high-accuracy datasets across 30+ object classes and 9,000+ transcription minutes.",
-    skills: ["Computer Vision", "NLP", "Data Annotation", "Dataset QA"],
-    gradient: "linear-gradient(135deg, #8ea884, #3a3a34)",
-    initials: "SS",
+    photo: "/team-samia.png",
   },
 ];
 
@@ -68,13 +69,18 @@ export default function Team() {
             <Reveal key={m.name} delay={i * 0.1}>
               <article className="group flex h-full flex-col rounded-2xl border border-cream/10 bg-ink-soft p-6 transition-colors duration-500 hover:border-sage/40">
                 <div
-                  className="relative mb-6 flex aspect-square w-full items-center justify-center overflow-hidden rounded-xl"
+                  className="relative mb-6 aspect-square w-full overflow-hidden rounded-xl"
                   style={{ background: m.gradient }}
                 >
-                  <span className="font-display text-6xl font-light text-cream/90">
-                    {m.initials}
-                  </span>
-                  <div className="absolute inset-0 opacity-[0.15] mix-blend-overlay [background-image:radial-gradient(#fff_1px,transparent_1px)] [background-size:4px_4px]" />
+                  <Image
+                    src={m.photo}
+                    alt={`${m.name} — ${m.role}, Sage&Saim`}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-ink/50 via-transparent to-transparent" />
+                  <div className="pointer-events-none absolute inset-0 opacity-[0.12] mix-blend-overlay [background-image:radial-gradient(#fff_1px,transparent_1px)] [background-size:4px_4px]" />
                 </div>
                 <h3 className="font-display text-2xl font-light">{m.name}</h3>
                 <p className="mb-4 text-sm uppercase tracking-widest text-sage">

@@ -46,7 +46,7 @@ export default function CTA() {
           className="mt-14 flex flex-col items-center gap-6"
         >
           <a
-            href="mailto:hello@sageandsaim.com"
+            href="mailto:sagesaimagency@gmail.com"
             className="group inline-flex items-center gap-4 rounded-full bg-cream px-8 py-4 text-ink transition-transform duration-300 hover:scale-105"
           >
             <span className="text-sm uppercase tracking-[0.2em]">Work with us</span>
@@ -57,10 +57,10 @@ export default function CTA() {
             </span>
           </a>
           <a
-            href="mailto:hello@sageandsaim.com"
+            href="mailto:sagesaimagency@gmail.com"
             className="text-lg text-cream/60 underline-offset-4 transition-colors hover:text-cream hover:underline"
           >
-            hello@sageandsaim.com
+            sagesaimagency@gmail.com
           </a>
         </motion.div>
       </div>

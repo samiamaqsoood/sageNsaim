@@ -58,7 +58,7 @@ public/
 ## Customization notes
 
 - **Brand colors** live in `tailwind.config.ts` (`sage`, `taupe`, `ink`, `cream`).
-- **Contact details** (`hello@sageandsaim.com`) and **social links** are placeholders — search the components to replace them with real values.
+- **Contact email** is `sagesaimagency@gmail.com` (official). **Social links** are still placeholders — search the components to replace them with real URLs.
 - **Work section** uses gradient placeholders. Drop real images into `public/` and swap the gradient cards in `Work.tsx` for `next/image`.
 - **Team bios** are drawn from real team experience; edit in `Team.tsx`.
 

@@ -27,7 +27,7 @@ const columns = [
       { label: "Instagram", href: "#" },
       { label: "LinkedIn", href: "#" },
       { label: "Behance", href: "#" },
-      { label: "Email", href: "mailto:hello@sageandsaim.com" },
+      { label: "Email", href: "mailto:sagesaimagency@gmail.com" },
     ],
   },
 ];

@@ -116,7 +116,7 @@ export default function Navbar() {
               ))}
             </div>
             <div className="mt-12 text-sm uppercase tracking-widest text-cream/50">
-              hello@sageandsaim.com
+              sagesaimagency@gmail.com
             </div>
           </motion.div>
         )}
