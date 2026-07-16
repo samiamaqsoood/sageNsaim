@@ -3,6 +3,8 @@
 import Reveal from "./Reveal";
 
 const clients = [
+  "Nvidia",
+  "Alibaba",
   "Lipton",
   "Kurkure",
   "Cheetos",
@@ -11,8 +13,6 @@ const clients = [
   "Mountain Dew",
   "Bayer",
   "Storm Fiber",
-  "Nvidia",
-  "Alibaba",
 ];
 
 const stats = [

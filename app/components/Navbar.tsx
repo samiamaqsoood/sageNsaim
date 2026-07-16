@@ -39,19 +39,16 @@ export default function Navbar() {
         }`}
       >
         <nav className="container-x flex items-center justify-between py-5">
-          <a href="#top" className="relative z-50 flex items-center gap-3">
-            <span className="flex h-10 w-10 items-center justify-center rounded-full bg-cream">
+          <a href="#top" className="relative z-50 flex items-center">
+            <span className="flex items-center rounded-xl bg-cream px-3.5 py-2 shadow-sm shadow-black/20">
               <Image
-                src="/logo.png"
-                alt="sageNsaim"
-                width={140}
-                height={72}
-                className="h-8 w-auto scale-[2.1] object-contain"
+                src="/logo-mark.png"
+                alt="Sage&Saim Agency"
+                width={417}
+                height={125}
+                className="h-7 w-auto object-contain md:h-8"
                 priority
               />
-            </span>
-            <span className="text-lg font-semibold tracking-tight">
-              sage<span className="text-taupe-light">Nsaim</span>
             </span>
           </a>
 
@@ -119,7 +116,7 @@ export default function Navbar() {
               ))}
             </div>
             <div className="mt-12 text-sm uppercase tracking-widest text-cream/50">
-              hello@sagensaim.com
+              hello@sageandsaim.com
             </div>
           </motion.div>
         )}

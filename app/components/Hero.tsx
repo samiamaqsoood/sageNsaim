@@ -61,7 +61,7 @@ export default function Hero() {
           transition={{ delay: 1.1, duration: 0.9 }}
           className="max-w-md text-balance text-base text-cream/70 md:text-lg"
         >
-          sageNsaim is a full-service agency blending social media, design,
+          Sage&amp;Saim is a full-service agency blending social media, design,
           web development, automation and AI to move your brand forward.
         </motion.p>
 

@@ -27,7 +27,7 @@ const columns = [
       { label: "Instagram", href: "#" },
       { label: "LinkedIn", href: "#" },
       { label: "Behance", href: "#" },
-      { label: "Email", href: "mailto:hello@sagensaim.com" },
+      { label: "Email", href: "mailto:hello@sageandsaim.com" },
     ],
   },
 ];
@@ -38,18 +38,15 @@ export default function Footer() {
       <div className="container-x py-16">
         <div className="grid gap-12 md:grid-cols-12">
           <div className="md:col-span-4">
-            <div className="mb-5 flex items-center gap-3">
-              <span className="flex h-10 w-10 items-center justify-center rounded-full bg-cream">
+            <div className="mb-5 flex items-center">
+              <span className="flex items-center rounded-xl bg-cream px-4 py-2.5">
                 <Image
-                  src="/logo.png"
-                  alt="sageNsaim"
-                  width={140}
-                  height={72}
-                  className="h-8 w-auto scale-[2.1] object-contain"
+                  src="/logo-mark.png"
+                  alt="Sage&Saim Agency"
+                  width={417}
+                  height={125}
+                  className="h-9 w-auto object-contain"
                 />
-              </span>
-              <span className="text-lg font-semibold tracking-tight">
-                sage<span className="text-taupe-light">Nsaim</span>
               </span>
             </div>
             <p className="max-w-xs text-sm text-cream/60">
@@ -81,9 +78,9 @@ export default function Footer() {
         </div>
 
         <div className="mt-16 flex flex-col items-start justify-between gap-4 border-t border-cream/10 pt-8 text-xs text-cream/40 md:flex-row md:items-center">
-          <span>© {new Date().getFullYear()} sageNsaim Agency. All rights reserved.</span>
+          <span>© {new Date().getFullYear()} Sage&amp;Saim Agency. All rights reserved.</span>
           <span className="uppercase tracking-widest">
-            Designed &amp; built by sageNsaim
+            Designed &amp; built by Sage&amp;Saim
           </span>
         </div>
       </div>

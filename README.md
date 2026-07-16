@@ -1,8 +1,8 @@
-# sageNsaim — Agency Website
+# Sage&Saim — Agency Website
 
-A modern, animated single-page marketing site for **sageNsaim**, a creative & growth agency offering social media management, web development, backend automation, branding, photography and AI/data solutions.
+A modern, animated single-page marketing site for **Sage&Saim**, a creative & growth agency offering social media management, web development, backend automation, branding, photography and AI/data solutions.
 
-Inspired by the layout and motion feel of [podium.global](https://podium.global/), adapted to the sageNsaim brand (sage green, taupe, charcoal).
+Inspired by the layout and motion feel of [podium.global](https://podium.global/) and [greydensity.com](https://www.greydensity.com/), adapted to the Sage&Saim brand (sage green, taupe, charcoal).
 
 ## Tech stack
 
@@ -58,7 +58,7 @@ public/
 ## Customization notes
 
 - **Brand colors** live in `tailwind.config.ts` (`sage`, `taupe`, `ink`, `cream`).
-- **Contact details** (`hello@sagensaim.com`) and **social links** are placeholders — search the components to replace them with real values.
+- **Contact details** (`hello@sageandsaim.com`) and **social links** are placeholders — search the components to replace them with real values.
 - **Work section** uses gradient placeholders. Drop real images into `public/` and swap the gradient cards in `Work.tsx` for `next/image`.
 - **Team bios** are drawn from real team experience; edit in `Team.tsx`.
 

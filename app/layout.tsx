@@ -18,11 +18,11 @@ const fraunces = Fraunces({
 });
 
 export const metadata: Metadata = {
-  title: "sageNsaim — Creative & Growth Agency",
+  title: "Sage&Saim — Creative & Growth Agency",
   description:
-    "sageNsaim is a full-service marketing agency offering social media management, web development, backend automation, branding, photography and AI-driven data solutions.",
+    "Sage&Saim is a full-service marketing agency offering social media management, web development, backend automation, branding, photography and AI-driven data solutions.",
   keywords: [
-    "sageNsaim",
+    "Sage&Saim",
     "marketing agency",
     "social media management",
     "web development",
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     "AI data",
   ],
   openGraph: {
-    title: "sageNsaim — Creative & Growth Agency",
+    title: "Sage&Saim — Creative & Growth Agency",
     description:
       "Social media, web, automation, branding, photography & AI. One team, built to grow your brand.",
     type: "website",
